@@ -24,4 +24,19 @@ public class GuildasService {
        guildasRepository.save(novaguilda);
     }
 
+    public void removerGuilda(Long id){
+        if(id == null || id == 0){
+            System.out.println("O id da matricula não pode ser nulo ou 0");
+        }
+
+        GuildasModel guildaParaRemover = guildasRepository.getById(id);
+
+        if(guildaParaRemover != null){
+            guildasRepository.delete(guildaParaRemover);
+        }else{
+            System.out.println("Guilda com esse ID não encontrada");
+        }
+
+    }
+
 }
